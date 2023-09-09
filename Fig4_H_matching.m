@@ -53,7 +53,7 @@ syncoind=[4:6 10:12 16:18 22:24 28:30 34:36]; % 3 trials x 6 sessions
 synind=[synchind;syncoind];
 
 %% Plot Fig 4
-canvas(0.1,1);
+canvas(0.15,1);
 
 subplot(3,1,1); 
 plot(H_Lall(uncoupleInd_LR(synchind(1:3))),H_Rall(uncoupleInd_LR(synchind(1:3))),'.','MarkerSize',30,'color',darkgreen);hold on;
@@ -107,6 +107,11 @@ plot([0.5 1], [0.5 1],'m--');
 hold off;
 text(max(xxx),max(FitValues)+0.01,sprintf('\\rho=%.2f',RHO),'Color',pink,'FontSize', 13)
 grid on;
+
+lg=legend('synch - subj pair 1','synch - subj pair 2','synch - subj pair 3','synch - subj pair 4', ...
+    'synch - subj pair 5','synch - subj pair 6', ...
+    'synco - subj pair 1','synco - subj pair 2','synco - subj pair 3','synco - subj pair 4',...
+    'synco - subj pair 5','synco - subj pair 6','location','eastoutside');
 
 
 subplot(3,1,2); 
@@ -179,6 +184,11 @@ plot([0.5 1], [0.5 1],'m--');
 hold off;
 grid on;
 
+lg=legend('synch - subj pair 1','synch - subj pair 2','synch - subj pair 3','synch - subj pair 4', ...
+    'synch - subj pair 5','synch - subj pair 6', ...
+    'synco - subj pair 1','synco - subj pair 2','synco - subj pair 3','synco - subj pair 4',...
+    'synco - subj pair 5','synco - subj pair 6','location','eastoutside');
+
 
 subplot(3,1,3);
 plot(H_Lall(mutualInd_LR(synchind(1:3))),H_Rall(mutualInd_LR(synchind(1:3))),'.','MarkerSize',30,'color',darkgreen);hold on;
@@ -242,7 +252,8 @@ lg=legend('synch - subj pair 1','synch - subj pair 2','synch - subj pair 3','syn
     'synch - subj pair 5','synch - subj pair 6', ...
     'synco - subj pair 1','synco - subj pair 2','synco - subj pair 3','synco - subj pair 4',...
     'synco - subj pair 5','synco - subj pair 6','location','eastoutside');
-lg.Position = [0.9475 0.15 0.01 0.15];
+% lg.Position = [0.9475 0.15 0.01 0.15];
+
 delete(findall(gcf,'type','annotation'))
 set(gcf,'color','w'); 
 
