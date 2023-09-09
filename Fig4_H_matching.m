@@ -1,14 +1,13 @@
 clear
-cd /home/zhibinz2/Documents/GitHub/Motor_coordination_code
 addpath(genpath('./util'))
 run color_scheme.m
 
-%% Compute and extract H
+data_path= '../Cleaned_data/'; % Cleaned EEG data can be found at https://osf.io/rstpu/. 
 seeds=[20220713;20220721;20220804;20220808;20220810;20220811;20220815;20220816;20221003;2022100401;
         2022100402;20221005];
 numSes=size(seeds,1);
 
-data_path= '../Cleaned_data/'; % Cleaned EEG data can be found at https://osf.io/rstpu/. 
+% Compute and extract H
 H_all=[];
 for s=1:numSes
     clear intervals
