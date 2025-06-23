@@ -97,7 +97,8 @@ for condi=[2 3]
     X=[X1; X2];
     X=permute(X,[2,1]);
     [F,~,~] = myGCautocov(X);
-    Fs(t,2)=F(2,1);Fs(t,3)=F(1,2);
+    Fs(t,2)=F(2,1);
+    Fs(t,3)=F(1,2);
     end
 end
 

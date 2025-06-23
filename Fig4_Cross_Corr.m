@@ -72,3 +72,8 @@ for i=1:3
 end
 
 set(gcf,'color','w'); % set background white for copying in ubuntu
+
+%% save the Xcorr -1 0 +1 for corrleation with EEG
+Xcorr10Lag; %12 ses x 12 sorted order x 21 
+save('Xcorr10Lag.mat','Xcorr10Lag');
+
