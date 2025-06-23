@@ -3,11 +3,9 @@
 csyn2condi4; % 3nx x 2 syn x 2 condi (follow and mutual) x 7 freq x 32 chan
 cd /home/zhibinz2/Documents/GitHub/Motor_coordination_code
 load('cc3_syn.mat'); %3nx x 2 syn x 4 condi x36 tr x 7 freq x 32 chan
-btwAB=cc3_syn(3,:,3:4,:,:,:); % btw nx x 2syn x 2 condi(follow, mutual) x 36 tr x 7 freq x 32 chan
-corr_btwAB=nan(2,2,7,32);
+btwAB=CC3_
+corr_btwAB=nan(2,7,32
 
 
 
-
-%% Correlate betweenness centrality to complexity score
-
+%% Or correlate to complexity score
