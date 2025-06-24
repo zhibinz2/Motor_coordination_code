@@ -1,3 +1,14 @@
+syn2names={'synch','synco'};
+nx3names={'degree ctr','efficiency','betweenness ctr'};
+condi4names={'Independent','Leading','Following','Mutual'};
+band7labels = {'\delta', '\theta', '\alpha', ...
+               '\mu', '\beta_1', '\beta_2', ...
+               '\gamma'};
+
+AllchanNames={'Fp1','Fpz','Fp2','F7','F3','Fz','F4','F8','FC5','FC1','FC2','FC6','M1','T7','C3','Cz','C4','T8','M2','CP5','CP1','CP2','CP6','P7','P3','Pz','P4','P8','POz','O1','Oz','O2'};
+
+
+
 %% correlate the betweenness centrality between A and B in hyperscanning at each electrode
 % open /home/zhibinz2/Documents/GitHub/Motor_coordination_code/Fig7_bootstrap_plot.m
 csyn2condi4; % 3nx x 2 syn x 2 condi (follow and mutual) x 7 freq x 32 chan
@@ -22,7 +33,16 @@ for syn=1:2
     end
 end
 
-
+figure;clf
+for syn=1:2
+    for condi=1:2
+        subplot(2,2,2*(syn-1)+condi);
+        mat=squeeze(corr_btwAB(syn,condi,:,:));
+        imagesc(mat);colorbar;colormap('jet');clim([-0.5 0.5])
+        title([num2str(syn) '' num2str(condi)])
+    end
+end
+set(gcf,'color','w'); % set backg
 %% Correlate betweenness centrality to complexity score
 load('H_syn.mat');
 H_syn;% 2 syn x 4 condi x 36 tr
@@ -38,3 +58,14 @@ for syn=1:2
         end
     end
 end
+
+figure;clf
+for syn=1:2
+    for condi=1:2
+        subplot(2,2,2*(syn-1)+condi);
+        mat=squeeze(corr_btw_H(syn,condi,:,:));
+        imagesc(mat);colorbar;colormap('jet');clim([-0.5 0.5])
+        title([num2str(syn) '' num2str(condi)])
+    end
+end
+set(gcf,'color','w'); % set
